@@ -629,3 +629,103 @@ document.addEventListener('DOMContentLoaded', () => {
 --accent: #ffffff;       /* 白色 */
 --accent-light: #fef3c7;
 ```
+
+---
+
+## 扩展页面模板
+
+### 时间线页
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>时间线</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .timeline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      flex: 1;
+      padding: 0 5%;
+    }
+    .timeline-line {
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      right: 10%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--secondary));
+      z-index: 0;
+    }
+    .timeline-item {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      flex: 1;
+      opacity: 0;
+      animation: slideInUp 0.6s ease forwards;
+    }
+    .timeline-item:nth-child(1) { animation-delay: 0.2s; }
+    .timeline-item:nth-child(2) { animation-delay: 0.4s; }
+    .timeline-item:nth-child(3) { animation-delay: 0.6s; }
+    .timeline-item:nth-child(4) { animation-delay: 0.8s; }
+    .timeline-dot {
+      width: clamp(14px, 1.5vw, 20px);
+      height: clamp(14px, 1.5vw, 20px);
+      background: var(--accent);
+      border-radius: 50%;
+      margin: 0 auto 1.5vh;
+      box-shadow: 0 0 12px var(--accent-light);
+    }
+    .timeline-year {
+      font-size: clamp(18px, 2.5vw, 32px);
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 1vh;
+    }
+    .timeline-desc {
+      font-size: clamp(12px, 1.3vw, 20px);
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 90%;
+      margin: 0 auto;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <h1 class="slide-title">发展历程</h1>
+    <div class="content" style="position: relative;">
+      <div class="timeline-line"></div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2020</div>
+          <p class="timeline-desc">项目启动</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2022</div>
+          <p class="timeline-desc">产品发布</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2024</div>
+          <p class="timeline-desc">规模扩展</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2026</div>
+          <p class="timeline-desc">全球化布局</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-indicator">N / 16</div>
+  </div>
+</body>
+</html>
+```
